@@ -5,10 +5,14 @@
         <form action="">
           <div class="mb-3">
             <label class="form-label">邮箱地址</label>
-            <validate-input :rules="emailRules" v-model="emailVal"></validate-input>
+            <validate-input :rules="emailRules" v-model="emailVal" placeholder="email" type="text"></validate-input>
             {{emailVal}}
           </div>
-
+          <div class="mb-3">
+            <label class="form-label">密码</label>
+            <validate-input :rules="emailRules" v-model="emailVal" placeholder="password" type="password"></validate-input>
+            {{emailVal}}
+          </div>
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">邮箱地址</label>
             <input
