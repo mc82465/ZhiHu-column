@@ -26,20 +26,7 @@ export default defineComponent({
     const toggleOpen = () => {
       isOpen.value = !isOpen.value
     }
-    /* const handler = (e: MouseEvent) => {
-      if (dropdownRef.value) {
-        if (!dropdownRef.value.contains(e.target as HTMLElement) && isOpen.value) {
-          isOpen.value = false
-        }
-      }
-    }
-    onMounted(() => {
-      document.addEventListener('click', handler)
-    })
-    onUnmounted(() => {
-      document.removeEventListener('click', handler)
-    }) */
-    const isClickOutside = useClickOutside(dropdownRef)
+    const isClickOutside = useClickOutside(dropdownRef as any)
     // 监听isClickOutside变化
     watch(isClickOutside, () => {
       if (isOpen.value && isClickOutside.value) {
