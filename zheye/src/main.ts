@@ -26,8 +26,14 @@ axios.interceptors.request.use(config => {
 axios.interceptors.response.use(config => {
   setTimeout(() => {
     store.commit('setLoading', false)
-  }, 3000)
+  }, 1000)
   return config
+}, e => {
+  console.log(e.response)
+  const { error } = e.response.data
+  store.commit('setError', { status: true, message: error })
+  store.commit('setLoading', false)
+  return Promise.reject(e.response.data)
 })
 
 const app = createApp(App)
